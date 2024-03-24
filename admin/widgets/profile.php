@@ -1,86 +1,82 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>profile</title>
     <style>
         body{
-            margin: 0;
-            padding: 0;
-            background:#cccccc;
+            height: 500px;
+            width:800px
         }
-        table{
-            border-spacing: 0;
+        .profile{
+            width:100%;
+            height: 50px;
+            background:blue;
+            display: flex;
         }
-        td{
-            padding: 0;
+        .profile:hover{
+        	background:red;
         }
-        img{
-            border:0;
+        .profile p{
+        	position:relative;
+            bottom:7px;
+            left:10px;
         }
-        .wrapper{
-            width: 100%;
-            table-layout: fixed;
-            background-color: #cccccc;
-            padding-bottom: 60px;
+        .profile_img{
+            position: relative;
+            height: 50px ;
+            width: 50px;
+            background: red;
+            border-radius: 50%;
         }
-        .main{
-            background-color: #ffffff;
-            margin: 0 auto;
-            width: 100%;
-            max-width: 600px;
-            border-spacing:0;
-            font-family: sans-serif;
-            color: #171a1b;
+        .profile span{
+        position: relative;
         }
-        .two-columns{
-            text-align: center;
-            font-size: 0;
+        .test{
+            background: black;
         }
-        .two-columns .column{
-            width: 100%;
-            max-width: 300px;
-            display: inline-block;
-            vertical-align: top;
-            text-align: center;
-        }
-        
     </style>
 </head>
 <body>
-    <center class="wrapper">
-        <table class="main" width="100%">
-<tr>
-    <td height="8" style="background-color: #171a1b;"></td>
-</tr>
-<tr>
-    <td style="padding: 14px 0 4px;">
-        <table width="100%">
-            <tr>
-                <td class="two-columns">
-                    <table class="column">
-                        <tr>
-                            <td style="padding: 0 62px 10px;"><a href="www.youtube.com" target="_blank"><img
-                            width="180" title="Logo" src="../images/friends.png" alt=""></a></td>
-                        </tr>
-                    </table>
-                    <table class="column">
-                        <tr>
-                            <td style="padding: 10px 72px;"><a href="#"><img src="../images/home.png" alt=""width="30"></a></td>
-                            <td><a href="#"><img src="../images/lock.png" alt=""width="30"></a></td>
-                            <td><a href="#"><img src="../images/menu.png" alt=""width="30"></a></td>
-                            <td><a href="#"><img src="../images/person.png" alt=""width="30"></a></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </td>
-</tr>
-        </table>
-    </center>
-    
+
+<?php
+$a=['rujen'=>['delivered','thihs is latest message1'],'ram'=>['delivered','thihs is latest message2'],'sita'=>['seen','thihs is latest message3']];
+foreach($a as $username=>$status)
+{
+echo "<div class=\"profile\">
+        <div class=\"profile_img\">
+        <img>
+        </div>
+        <p><strong>$username</strong></p>
+        <span>$status[0]</span>
+        <p>$status[1]</p>
+    </div>";
+}
+?>
+   <script>
+        const panels = document.querySelectorAll('.profile');
+            
+panels.forEach((panel) => {
+    panel.addEventListener('click', () => {
+        removeActiveClasses();
+        panel.classList.add('test');
+        const lol=setTimeout(dosomething(), 5000);
+    })
+})
+
+function removeActiveClasses(){
+    panels.forEach(panel => {
+        panel.classList.remove('test');
+    })
+}
+function dosomething(){
+	clicked=document.getElementsByClassName("test");
+    clicked.value
+    document.write("hello")
+}
+
+   
+    </script>
 </body>
 </html>
