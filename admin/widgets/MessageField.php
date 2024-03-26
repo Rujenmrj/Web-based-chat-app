@@ -12,11 +12,11 @@ class MessageField{
     // if($this->label)
     //     echo "<label for=\"$this->label\">$this->label</label>";
 
-    echo "<input type=\"text\" 
+    echo "<input type=\"texst\" 
     name=\"$this->label\" 
     style=\"background: url('../images/send.png') no-repeat right ;\"
     id=\"$this->label\"
-    class=\"$this->class\" 
+    class=\"input-with-placeholder $this->class\" 
     placeholder=\"$this->placeHolder\">";
 }
 }

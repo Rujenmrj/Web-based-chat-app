@@ -1,33 +1,28 @@
 <?php
-// echo '
-//         <!-- <div>
-//                 <label for="field_name">Name of Field</label><br>
-//             <div class="field">
-//             <img src="person.png" alt="" srcset=""> -->
-//                 <input type="text" name="field_name" id="uid" class="class_name" placeholder="username or email">
-//             <!-- </div>
-//         </div> -->';
-include_once "../widgets/FieldWithIcon.php";
+// including widget, config, validation file
+include_once('../widgets/FieldWithIcon.php');
 include_once('config.php');
+include_once('../model/user.php');
+
+//creating fields for email/username and password
 $loginEmailField=new FieldWithIcon(
     $type="text",
-    $placeHolder="email or username",
+    // $placeHolder="email or username",
     $class="icon",
-    $label="username",
+    $label="Username",
     $icon=@images."/person.png"
 );
 $loginPasswordField=new FieldWithIcon(
     $type="password",
-    $placeHolder="password",
+    // $placeHolder="password",
     $class="icon",
-    $label="password",
+    $label="Password",
     $icon= @images."/lock.png"
 );
-if(isset($_POST['submit'])){
-    $user=$_POST['username'];
-    $password=$_POST['password'];
-    // echo "$user and $password";
-    
+// checking for username password in db and validating
+if(isset($_POST['login'])){
+    $user=new User();
+    $user->login();
 }
 ?>
 <html lang="en">
@@ -39,13 +34,13 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <div class="gridcenter">
-    <form autocomplete="off" method="POST"> 
+    <form method="POST"> 
             <div class="form">
             <?php
-                $loginEmailField->create();
-                $loginPasswordField->create();
+                $loginEmailField->add();
+                $loginPasswordField->add();
             ?>
-            <input type="submit" id="submit" value="submit" name="submit">
+            <input type="submit" class="button" id="login" value="login" name="login">
         </div>
         </form>
     </div>

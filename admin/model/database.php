@@ -18,49 +18,39 @@ class Database{
     function discon(){
         $this->conn=null;
     }
-    function loadmessage(){
-        $sql="SELECT * FROM messages ORDER BY sentdate DESC";
-        $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
-        $count=mysqli_num_rows($qry);
-        if($count>=1){
-            $arr = [];
-            // echo "<h3>We have $count records.</h3>";
-            while($row=mysqli_fetch_array($qry)){
-                array_push($arr,$row['message']);
-                // echo "<tr>";
-                // echo "<td>".$row['id']."</td>";
-                // echo "<td>".$row['name']."</td>";
-                // echo "<td>".$row['description']."</td>";
-                // echo "<td><img src=../uploads/".$row['thumb']." width=200px></td>";
-                // echo "<td>".$row['status']."</td>";
-                // echo "<td> <a href=editdeletecategory.php?id=".$row['id']."&action=edit>EDIT</a> | <a href=editdeletecategory.php?id=".$row['id']."&action=delete>DELETE</a> </td>";
-                // echo "</tr>";
-            }
-        }
-        else{
-            echo "<h1>Sorry no record Found</h1>";
-        }
-        return $arr;
-    }
-    function postmes($message,$sent){
-        echo "reached postmes function";
-        // $sql="INSERT INTO messages VALUES ($id,$message,$sent,currenttimestamp) ";
-        $sql="INSERT INTO `messages`( `message`, `sender`, `sentdate`) VALUES ('$message','$sent',CURRENT_TIMESTAMP)";
-        // mysqli_execute_query($this->conn, $sql) or die(mysqli_error($this->conn));
+    function Insertqry($sql){
         $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
         if($qry){
-            //uploading the file to uploads folder 
-            echo "inserted $id $message $sent";
+            echo "Inserted";
         }
     }
-    function login($username,$password){
-        $sql="SELECT * FROM users WHERE username=$user AND password=$password";
+    function Selectqry($sql){
         $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
         if($qry){
-            //uploading the file to uploads folder 
-            echo "record found";
+            // echo "Retrieved";
+            return $qry;
         }
     }
+    function Updateqry($sql){
+        $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
+        if($qry){
+            echo "Updated";
+            return qry;
+        }
+    }
+    
+    // function login($username,$password){
+    //     $sql="SELECT * FROM users WHERE username=$user AND password=$password";
+    //     $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
+    //     if($qry){
+    //         //uploading the file to uploads folder 
+    //         echo "record found";
+    //     }
+    // }
+    // function register($email,$password,$DOB){
+        
+        
+    // }
     function __destruct() {
         $this->discon();
         // echo "Database disconnected";
@@ -70,3 +60,17 @@ class Database{
 // $test=new Database();
 
 ?>
+<!-- CREATE TABLE friends(
+    friendID int,
+	requestID int,
+    receiveID int,
+    PRIMARY KEY(requestID,receiveID)
+);
+create TABLE profiles(
+	profileID int PRIMARY KEY,
+    pic VARCHAR,
+    username varchar NOT NULL,
+    online boolean DEFAULT 0,
+    lastonline datetime,
+    FOREIGN KEY(username) REFERENCES users(username) ON DELETE CASCADE on UPDATE CASCADE
+); -->

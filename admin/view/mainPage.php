@@ -35,7 +35,10 @@
     </div>
 
     <div class="people">
-
+        <div style="background:white;">Messages <a href="#"><img src="../images/menu.png" alt="" width="30px"></a></div>
+        <?php
+        include_once("../widgets/people.php");
+        ?>
     </div>
 
     <div class="chat">
@@ -60,7 +63,7 @@
     
     
     function postmess(){
-        console.log("sent");
+        // console.log("sent");
         insertintodb();
         messegebox.value='';
         messegebox.focus();
@@ -89,25 +92,25 @@
                 }
             }
         }
-        xmlhttp.open("GET", "../model/loadMessage.php", true);
+        xmlhttp.open("POST", "../controller/loadMessage.php", true);
         xmlhttp.send();
     }, 5000);
   }
 
 
   function insertintodb(){
-      console.log("sending...");
-        if(messegebox.value!==""){
-            console.log("sending...");
+      message=messegebox.value;
+        if(message!==""){
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 // document.getElementById("error").innerHTML = this.responseText;
-                console.log("stillworks")
+                // console.log("reached insertdb")
             }
         }
-        xmlhttp.open("GET","../model/postmessage.php?msg="+messegebox.value+"&uid=ram", true);
-        xmlhttp.send();
+        xmlhttp.open("POST","../controller/postmessage.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("msg="+message);
     }
   }
 </script>
