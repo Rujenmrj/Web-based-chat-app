@@ -1,3 +1,5 @@
 <?php
-define("images","../images")
+define("images","../images");
+define("models","../model")
+
 ?>

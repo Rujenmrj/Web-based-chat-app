@@ -20,8 +20,9 @@ class Database{
     }
     function Insertqry($sql){
         $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
+        echo "hello";
         if($qry){
-            echo "Inserted";
+            return $qry;
         }
     }
     function Selectqry($sql){
@@ -34,7 +35,7 @@ class Database{
     function Updateqry($sql){
         $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
         if($qry){
-            echo "Updated";
+            // echo "Updated";
             return qry;
         }
     }
@@ -60,17 +61,3 @@ class Database{
 // $test=new Database();
 
 ?>
-<!-- CREATE TABLE friends(
-    friendID int,
-	requestID int,
-    receiveID int,
-    PRIMARY KEY(requestID,receiveID)
-);
-create TABLE profiles(
-	profileID int PRIMARY KEY,
-    pic VARCHAR,
-    username varchar NOT NULL,
-    online boolean DEFAULT 0,
-    lastonline datetime,
-    FOREIGN KEY(username) REFERENCES users(username) ON DELETE CASCADE on UPDATE CASCADE
-); -->

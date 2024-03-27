@@ -1,19 +1,13 @@
 <?php
-// echo '
-//         <!-- <div>
-//                 <label for="field_name">Name of Field</label><br>
-//             <div class="field">
-//             <img src="person.png" alt="" srcset=""> -->
-//                 <input type="text" name="field_name" id="uid" class="class_name" placeholder="username or email">
-//             <!-- </div>
-//         </div> -->';
-include_once "../widgets/FieldWithIcon.php";
+include_once("../widgets/FieldWithIcon.php");
+// include_once("../controller/validate.php");
+include_once('../model/user.php');
 include_once('config.php');
 $registerEmailField=new FieldWithIcon(
-    $type="text",
+    $type="email",
     // $placeHolder="email",
     $class="icon",
-    $label="Username",
+    $label="Email",
     $icon=@images."/person.png"
 );
 $registerPasswordField=new FieldWithIcon(
@@ -27,28 +21,22 @@ $registerConfirmPasswordField=new FieldWithIcon(
     $type="password",
     // $placeHolder="password",
     $class="icon",
-    $label="Confirm Password",
+    $label="Confirm-Password",
     $icon= @images."/lock.png"
 );
 
-$DOBField=new FieldWithIcon(
-    $type="date",
-    $class="icon",
-    $label="Date of Birth",
-    $icon= @images."/lock.png"  
-);
-
-if(isset($_POST['register'])){
-    $user=$_POST['username'];
-    $password=md4($_POST['password']);
-    //validating username/email
-    if(validate($user)){
-        if($password!=""){
-            register();
-            header("Location:login.php");
-        }
-    }
+if(isset($_POST['Register'])){
+    $usr=new User();
+    $usr->register();
 }
+// if(isset($_POST['register'])){
+//     $user=$_POST['Email'];
+//     $password=$_POST['Password'];
+//     $confirmpassword=$_POST['Confirm-Password'];
+//     registervalidation($user,$password,$confirmpassword);
+//         $user=new User();
+//         $user->register();
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +45,7 @@ if(isset($_POST['register'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../images/person.png" type="image/x-icon">
 </head>
 <body>
 <div class="gridcenter">
@@ -65,9 +54,10 @@ if(isset($_POST['register'])){
         <?php
         $registerEmailField->add();
         $registerPasswordField->add();
-        // $DOBField->add();
+        $registerConfirmPasswordField->add();
         ?>
-        <input type="submit" class="button" id="register" value="Register" name="register">
+        <input type="submit" class="button" id="Register" value="Register" name="Register">
+        <p>already have an account?<a href="login.php">login here</a></p>
         </div>
     </form>
 </div>

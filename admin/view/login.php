@@ -1,7 +1,8 @@
 <?php
 // including widget, config, validation file
-include_once('../widgets/FieldWithIcon.php');
 include_once('config.php');
+include_once('../widgets/FieldWithIcon.php');
+// include_once('../controller/validate.php');
 include_once('../model/user.php');
 
 //creating fields for email/username and password
@@ -20,17 +21,21 @@ $loginPasswordField=new FieldWithIcon(
     $icon= @images."/lock.png"
 );
 // checking for username password in db and validating
-if(isset($_POST['login'])){
-    $user=new User();
-    $user->login();
+if(isset($_POST['Login'])){
+    $usr=new User();
+    $usr->login($_POST['Username'],$_POST['Password']);
+    // if(!validate($_POST['Username'],$_POST['Password'])){
+    //     unset($_POST);
+    // }
 }
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title><?php
+    <title>Login</title><?php
     echo "<link rel=\"stylesheet\" href=\"style.css?v=e031e80c3d8b\">"?>
+    <link rel="shortcut icon" href="../images/person.png" type="image/x-icon">
 </head>
 <body>
     <div class="gridcenter">
@@ -40,7 +45,8 @@ if(isset($_POST['login'])){
                 $loginEmailField->add();
                 $loginPasswordField->add();
             ?>
-            <input type="submit" class="button" id="login" value="login" name="login">
+            <input type="submit" class="button" id="Login" value="Login" name="Login">
+            <p>don't have an account?<a href="register.php">register here</a></p>
         </div>
         </form>
     </div>
