@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../view/style.css">
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 class CustomFileInputField{
     private $class;
@@ -28,7 +40,7 @@ class CustomFileInputField{
 //     $type="file",
 //     // $placeHolder="email",
 //     $class="custom-file-upload",
-//     $label="Username",
+//     $label="profilepic",
 //     $icon=@images."/person.png"
 // );
 // $test->add();

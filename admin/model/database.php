@@ -20,7 +20,6 @@ class Database{
     }
     function Insertqry($sql){
         $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
-        echo "hello";
         if($qry){
             return $qry;
         }
@@ -36,22 +35,9 @@ class Database{
         $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
         if($qry){
             // echo "Updated";
-            return qry;
+            return $qry;
         }
     }
-    
-    // function login($username,$password){
-    //     $sql="SELECT * FROM users WHERE username=$user AND password=$password";
-    //     $qry=mysqli_query($this->conn, $sql) or die(mysqli_error($this->conn));
-    //     if($qry){
-    //         //uploading the file to uploads folder 
-    //         echo "record found";
-    //     }
-    // }
-    // function register($email,$password,$DOB){
-        
-        
-    // }
     function __destruct() {
         $this->discon();
         // echo "Database disconnected";

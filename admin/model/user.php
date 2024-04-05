@@ -36,7 +36,7 @@ class User{
             unset($_POST);
             return;
         }
-        $_SESSION['user']=$this->user_name;
+        $_SESSION['email']=$this->email;
         $_SESSION['password']=$this->password;
         $_SESSION["accesstime"]=date("YmdhisaD");
     }

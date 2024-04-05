@@ -35,7 +35,7 @@ if(isset($_POST['Login'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title><?php
     echo "<link rel=\"stylesheet\" href=\"style.css?v=e031e80c3d8b\">"?>
-    <link rel="shortcut icon" href="../images/person.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/logov3.png" type="image/x-icon">
 </head>
 <body>
     <div class="gridcenter">

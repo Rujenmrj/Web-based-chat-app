@@ -5,7 +5,6 @@ define("password_regex", "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*
 function validate($user,$password){
     if($user!='' && $password!=''){
         $encptpassword=md5($password);
-        echo "hello";
         if(filter_var($user, FILTER_VALIDATE_EMAIL)){
             $sql="SELECT * FROM users WHERE email='$user' AND password='$encptpassword'";
         }
@@ -25,10 +24,10 @@ function validate($user,$password){
                 //redirect to admin/dashboard.php
                 if($status==1){
                     if("admin"=="$role" ){
-                        header("Location:mainpage.php");
+                        header("Location:home.php");
                     }
                     else{
-                        header("Location:mainpage.php");
+                        header("Location:home.php");
                     }
                 }
             }
@@ -77,10 +76,10 @@ function registervalidation($user,$password,$confirmpassword){
             //     $_SESSION["accesstime"]=date("YmdhisaD");
             //     if($status==1){
             //         if("admin"=="$role" ){
-            //             header("Location:mainpage.php");
+            //             header("Location:home.php");
             //         }
             //         else{
-            //             header("Location:mainpage.php");
+            //             header("Location:home.php");
             //         }
             //     }
             }

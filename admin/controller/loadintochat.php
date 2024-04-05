@@ -12,6 +12,4 @@ class LoadInChat{
 }
 $pm=new LoadInChat();
 $pm->loadchat();
-$ld =new LoadMessage();
-$ld->loading();
 ?>

@@ -5,9 +5,10 @@ if(!isset($_SESSION['username'])&&!isset($_SESSION['password'])){
     header("Location:admin/view/login.php");
 }
 else{
-    $user=$_SESSION['user'];
-    $password=$_SESSION['password'];
-    $usr=new User();
-    $user->login($user,$password);
+    // $user=$_SESSION['user'];
+    // $password=$_SESSION['password'];
+    // $usr=new User();
+    // $user->login($user,$password);
+    header("Location:admin/view/home.php");
 }
 ?>

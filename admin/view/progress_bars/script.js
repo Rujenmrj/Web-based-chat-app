@@ -36,7 +36,7 @@ function update() {
     progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%';
 
     if (currentActive === 1) {
-        prev.disabled = true;
+        prev.disabled = false;
     } 
     else if (currentActive === circles.length) {
         next.disabled = true;
@@ -44,20 +44,34 @@ function update() {
         prev.disabled = false;
         next.disabled = false;
     }
+    if(currentActive===1){
+        document.getElementById('form1').style.display='flex'
+        document.getElementById('form2').style.display='none'
+        document.getElementById('form3').style.display='none'
+    }
+    if(currentActive===2){
+        document.getElementById('form1').style.display="none"
+        document.getElementById('form2').style.display='flex'
+        document.getElementById('form3').style.display="none"
+    }
+    if(currentActive===3){
+        document.getElementById('form1').style.display="none"
+        document.getElementById('form2').style.display="none"
+        document.getElementById('form3').style.display='flex'
+        sendotp();
+    }
+    if(next.disabled){
+        document.getElementById("validatewithotp").submit();
+    }
 }
-function loadincha(){
-
-//     inchat=document.get
-//       if(inchat!==""){
-//       var xmlhttp = new XMLHttpRequest();
-//       xmlhttp.onreadystatechange = function() {
-//           if (this.readyState == 4 && this.status == 200) {
-//               // document.getElementById("error").innerHTML = this.responseText;
-//               // console.log("reached insertdb")
-//           }
-//       }
-//       xmlhttp.open("POST","../controller/loadintochat.php", true);
-//       xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//       xmlhttp.send("msg="+message);
-//   }
+function sendotp() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("otp sent to mail");
+            console.log(this.responseText);
+        }
+    }
+    xmlhttp.open("POST","../controller/sendotp.php", true);
+    xmlhttp.send();
 }

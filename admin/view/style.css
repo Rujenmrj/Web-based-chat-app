@@ -23,6 +23,14 @@
   justify-content: space-around;
   margin-bottom: 50px;
 }
+.gridrow{
+  grid-auto-flow: row;
+}
+.flexcolumn{
+  flex-direction: column;
+  align-items: center;
+}
+
 .form{
   display: flex;
   flex-direction: column;
@@ -94,6 +102,19 @@
 .button:hover{
   background-color: var(--light-mode-secondary-color );
 }
+.sendmessage{
+  height: 50px;
+  width: 50px;
+  background-color:  transparent;
+  border: 0;
+}
+.sendmessage img{
+  height: inherit;
+  width: inherit;
+}
+.messagesender{
+  height: fit-content;
+}
 
 
 .container{
@@ -111,27 +132,30 @@
 .nav-bar{
   height: inherit;
   width: 10%;
-  background: red;
+  background: var(--light-mode-primary-color);
 }
-.people{
+.section1{
   height: inherit;
   width: 10%;
-  background: rgb(0, 0, 0);
+  background: var(--light-mode-secondary-color);
   flex-grow: 2;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.chat{
+.section2{
   height: inherit;
   /* max-height: 100vh; */
   display: flex;
   flex-direction: column;
-  background: rgb(126, 29, 245);
+  /* background: rgb(126, 29, 245); */
   flex-grow: 10;
 }
+#form2, #form3{
+  display:none;
+}
 .message{
-  min-height: 20px;
+  min-height: 0;
   width: fit-content;
   padding: 10px;
   border-radius: 50px;
@@ -139,21 +163,39 @@
   overflow-wrap:break-word;
   flex-wrap: wrap;
   background-color: #9191ff;
+  transition: width 2s height 2s;
+  animation: popup 1s ease-in-out 1 ;
+}
+@keyframes popup {
+  0%{
+    width: 0;
+    height: 0;
+    display: none;
+    padding: 0;
+  }
+  100%{
+  height: 20px;
+  width: fit-content;
+  }
+  
 }
 #messages{
   width: inherit;
   height: inherit;
-  background-color: bisque;
+  background-color: var(--light-mode-neutral-color);
   display:flex;
   flex-direction: column-reverse;
   overflow-y: scroll;
   scrollbar-width: none;
 }
 .messagebox{
-  position: relative;
-  /* width: 93.5%; */
-  height: 50px;
-  bottom: 0;
+  display: flex;
+}
+.messagebox input{
+  flex-grow: 4;
+}
+.messagebox img{
+  flex-grow: 1;
 }
 
 .animatedcircle{
@@ -174,17 +216,24 @@
 .profile{
   width:100%;
   height: 50px;
-  background:blue;
+  background:transparent;
   display: flex;
+  /* flex-direction: column; */
   overflow: hidden;
+  user-select: none;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .profile:hover{
-background:rgb(225, 187, 187);
+background:var(--light-mode-neutral-color);
 }
-.profile p{
+.profile strong{
 position:relative;
-  bottom:7px;
   left:10px;
+  width: fit-content;
 }
 .profile_img{
   position: relative;
@@ -195,9 +244,20 @@ position:relative;
 }
 .profile span{
 position: relative;
+max-width: 65px;
+max-height: 20PX;
+justify-content: space-between;
+overflow: hidden;
+/* align-self: flex-end; */
 }
-.test{
-  background: black;
+.latestmessage{
+  display: flex;
+  width: inherit;
+  /* padding: 2px; */
+  justify-content: space-around;
+}
+.activeinchat{
+  background: var(--light-mode-neutral-color);
 }
 .error{
   opacity: 0;
@@ -237,7 +297,7 @@ position: relative;
   }
 }
 .sent{
-  background-color: rgb(101, 76, 46);
+  background-color: var(--light-mode-secondary-color);
   position: relative;
   margin-left: auto;
 }
@@ -361,4 +421,7 @@ body {
 
 .btn:disabled {
   background-color: var(--line-border-empty);
+}
+input[type=file]{
+  cursor:pointer;
 }

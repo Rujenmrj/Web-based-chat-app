@@ -36,22 +36,35 @@ $pictureField=new CustomFileInputField(
     $type="file",
     // $placeHolder="email",
     $class="custom-file-upload",
-    $label="Username",
+    $label="profilepic",
     $icon=''
 );
-    echo "<form class='flexcenter'><section class='form'>";
+$otpField=new FieldWithIcon(
+    $type="text",
+    // $placeHolder="email",
+    $class="icon",
+    $label="OTP",
+    $icon=@images."/key.png"
+);
+    echo "<form action='verifyuser.php' method='post' id='validatewithotp'>
+            <main class='flexcenter'>
+            <section class='form' id='form1'>";
     $FirstNameField->add();
     $LastNameField->add();
-    echo "</section><section class='form'>";
+    echo "</section>
+    <section class='form' id='form2'>";
+    $pictureField->add();
     $usernameField->add();
     ?>
 <?php
-echo "</section><section class='form'>";
+echo "</section>
+<section class='form' id='form3'>";
+$otpField->add();
 ?>
 <?php
-$pictureField->add();
-echo "</section></form>";
+echo "</section></main>";
 include_once("progress_bars/progressbuttons.html");
+echo "</form>";
 ?>
 </body>
 </html>
