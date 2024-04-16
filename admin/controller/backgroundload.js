@@ -27,6 +27,7 @@ function postmessonenter(e){
 }
 
  function loadMessage() {
+    
      if(messages.innerHTML===""){
          messages.append(loadinganimation());
      }
@@ -35,10 +36,10 @@ function postmessonenter(e){
          if (this.readyState == 4 && this.status == 200) {
              if(messages.innerHTML!==this.response){
                  document.getElementById("messages").innerHTML = this.responseText;
-             }
-         }
-     }
-     xmlhttp.open("POST", "../controller/loadMessage.php", true);
-     xmlhttp.send();
- }, 1000);
+                }
+            }
+        }
+        xmlhttp.open("POST", "../controller/loadMessage.php", true);
+        xmlhttp.send();
+    }, 1000);
 }

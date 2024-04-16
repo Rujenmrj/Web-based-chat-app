@@ -13,11 +13,16 @@ class LoadMessage{
                     $message=$row['message'];
                     $fromid=$row['messagefrom'];
                     $toid=$row['messageto'];
-                    if($fromid==$_SESSION['user']){
-                        echo "<div class=\"message sent\">$message</div>";
+                    if(next($row)){
+                        if($fromid==$_SESSION['user']){
+                            echo "<div class=\"message sent\">$message</div>";
+                        }
+                        else{
+                            echo "<div class=\"message received\">$message</div>";
+                        }
                     }
                     else{
-                        echo "<div class=\"message received\">$message</div>";
+                        echo "<div class=\"message received\" id='popup'>$message</div>";
                     }
                 }
             }

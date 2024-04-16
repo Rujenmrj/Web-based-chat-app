@@ -17,9 +17,12 @@
     include_once('nav.php');
     ?>
     <section class="section1">
-    <div style="background:white;"><a href="#"><img src="../images/menu.png" alt="" width="30px"></a>Messages </div>
+    <div style="background:white;"><a href="#"><img src="../images/menu.png" alt="menu" width="30px"></a><span>Friend Request</span></div>
     </section>
 
     <section class="section2">
+    <?php
+        include('../widgets/requestbox.php');
+    ?>
     </section>
     </div>

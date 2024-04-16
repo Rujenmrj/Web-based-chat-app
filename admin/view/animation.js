@@ -16,6 +16,7 @@ panels.forEach((panel) => {
 function removeActiveClasses(){
     panels.forEach(panel => {
         panel.classList.remove('activeinchat');
+        panel.classList.remove('inchat');
     })
 }
 function dosomething(){

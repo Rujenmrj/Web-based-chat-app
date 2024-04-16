@@ -18,12 +18,16 @@ if($result !== ""){
     }
 }
 }
-// $a=['Rujen'=>['delivered','this is ssssssssssssssssssssssssssss1'],'Rujen123'=>['delivered',' message2'],'sita'=>['seen','message3']];
 foreach($arr as $username=>$detail)
 {
     foreach($detail as $user=>$ab){
-        echo "<div class=\"profile \" id='$user'>
-        <div class='profile_img' style=\"background-image:url('../images/$ab[1]'); background-size:48px;\">
+        if(isset($_SESSION['inchat']) && $user==$_SESSION['inchat']){
+            echo "<div class=\"profile inchat\" id='$user'>";
+        }
+        else{
+        echo "<div class=\"profile \" id='$user'>";
+        }
+        echo "<div class='profile_img' style=\"background-image:url('../images/$ab[1]'); background-size:48px;\">
                 </div>
                 <div class='box'>
                 <strong>$ab[0]</strong>

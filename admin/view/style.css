@@ -164,7 +164,10 @@
   flex-wrap: wrap;
   background-color: #9191ff;
   transition: width 2s height 2s;
-  animation: popup 1s ease-in-out 1 ;
+  
+}
+#popup{
+  animation: popup 1s ease-in-out 1;
 }
 @keyframes popup {
   0%{
@@ -227,7 +230,7 @@
   flex-direction: column;
   width: 100%;
 }
-.profile:hover{
+.profile:hover,.inchat,.activeinchat{
 background:var(--light-mode-neutral-color);
 }
 .profile strong{
@@ -255,9 +258,6 @@ overflow: hidden;
   width: inherit;
   /* padding: 2px; */
   justify-content: space-around;
-}
-.activeinchat{
-  background: var(--light-mode-neutral-color);
 }
 .error{
   opacity: 0;
