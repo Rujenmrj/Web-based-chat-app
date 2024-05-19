@@ -1,9 +1,11 @@
- const messegebox=document.getElementById('message');
+ const messageBox=document.getElementById('message');
  const messages=document.getElementById("messages");
+ const viewSentRequest=document.getElementById("request_sent");
+ const viewReceivedRequest=document.getElementById("request_received");
  
  
  function postmess(){
-    let message=messegebox.value;
+    let message=messageBox.value;
     if(message!==""){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -16,8 +18,8 @@
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("msg="+message);
 }
-     messegebox.value='';
-     messegebox.focus();
+     messageBox.value='';
+     messageBox.focus();
 }
 
 function postmessonenter(e){
@@ -42,4 +44,20 @@ function postmessonenter(e){
         xmlhttp.open("POST", "../controller/loadMessage.php", true);
         xmlhttp.send();
     }, 1000);
+}
+
+function loadfriendrequest(){
+    var xmlhttp = new XMLHttpRequest();
+     xmlhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+            console.log("text ready");
+             document.getElementById("friendsection2").innerHTML = this.responseText;
+        }
+    }
+    xmlhttp.open("GET", "../widgets/requestbox.php", true);
+    xmlhttp.send();
+}
+viewSentRequest.onclick=function (){
+    loadfriendrequest();
+    console.log("loading friend request sent")
 }

@@ -43,8 +43,5 @@
 <script src="../controller/backgroundload.js">
 </script>
 <script src="animation.js"></script>
-<script>
-
-</script>
 </body>
 </html>

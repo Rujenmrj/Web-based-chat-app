@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../view/style.css">
-    <style>
-
-    </style>
-</head>
-<body>
-    <?php
+<?php
+include_once("../view/config.php");
+include_once("../model/session.php");
+include_once("../model/friends.php");
+$friendlist=new Friend();
+$result=$friendlist->friendrequestlist($_SESSION['user']);
+$arr=[];
+if($result !== ""){
+    $count=mysqli_num_rows($result);
+    if($count>0){
+        while($row=mysqli_fetch_array($result)){
+            $fullname=$row['fullname'];
+            $usrname=$row['username'];
+            $pic=$row['pic']==null ?'person.png':$row['pic'];
+            $message=$row['message'];
+            $readstatus=$row['readstatus'];
+            $a=[$usrname=>[$fullname,$pic,$message,$readstatus]];
+            array_push($arr,$a);
+    }
+}
+}
     $user="Rujen";
     $ab=['rujen','person.png','abd',123];
     echo "<div class=\"profile \" id='$user'>

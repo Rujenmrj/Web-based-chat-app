@@ -2,9 +2,10 @@
 include_once('database.php');
 include_once('session.php');
 class Message{
-    function postmessage($message){
+    function postmessage($mess){
         $username=$_SESSION['user'];
         $inchat=$_SESSION['inchat'];
+        $message=trim($mess," ");
         if($message!=''){
             $sql="INSERT INTO message(message, messagefrom, messageto, sentdatetime) VALUES ('$message','$username','$inchat',CURRENT_TIMESTAMP)";
             $message=new Database();

@@ -32,7 +32,7 @@ foreach($arr as $username=>$detail)
                 <div class='box'>
                 <strong>$ab[0]</strong>
                 <div class='latestmessage'>
-                    <span>$ab[1]</span>
+                    <span>$ab[2]</span>
                     <span>$ab[3]</span>
                 </div>
                 </div>

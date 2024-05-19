@@ -30,7 +30,14 @@ class Friend{
     }
     function friendslist($user){
         // $db=new Database();
-        $sql="SELECT receiveID,username,fullname,readstatus,pic,message,acceptstatus,requestID,receiveID FROM friends JOIN profiles ON requestID=username OR receiveID=username LEFT JOIN message ON requestID=messagefrom OR receiveID=messagefrom GROUP BY username HAVING acceptstatus=1 AND username <>'Rujen123' AND requestID='$user' OR receiveID='$user'";
+        $sql="SELECT receiveID,username,fullname,readstatus,pic,message,acceptstatus,requestID FROM friends JOIN profiles ON requestID=username OR receiveID=username LEFT JOIN message ON requestID=messagefrom OR receiveID=messagefrom GROUP BY username HAVING acceptstatus=1 AND username <>'$user' AND (requestID='$user' OR receiveID='$user')";
+        $result=@db->Selectqry($sql);
+        if($result){
+            return $result;
+        }
+    }
+    function friendrequestlist($user){
+        $sql="SELECT receiveID,username,fullname,readstatus,pic,message,acceptstatus,requestID FROM friends JOIN profiles ON requestID=username OR receiveID=username LEFT JOIN message ON requestID=messagefrom OR receiveID=messagefrom GROUP BY username HAVING acceptstatus=0 AND username <>'$user' AND (requestID='$user' OR receiveID='$user')";
         $result=@db->Selectqry($sql);
         if($result){
             return $result;

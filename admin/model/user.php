@@ -41,6 +41,7 @@ class User{
         $_SESSION["accesstime"]=date("YmdhisaD");
     }
     function logout(){
+        
         if (count($_POST) > 0 || count($_GET)>0) {
             $_POST = array();
             $_GET =array();

@@ -4,12 +4,14 @@ function loadinganimation(){
     return animatednode;
 }
 const panels = document.querySelectorAll('.profile');
+const panel = document.querySelectorAll('.profile');
 
 panels.forEach((panel) => {
     panel.addEventListener('click', () => {
         removeActiveClasses();
         panel.classList.add('activeinchat');
-        dosomething();
+        inchatuser=document.getElementsByClassName('activeinchat')[0].id;
+    loadinchat(inchatuser);
     })
 })
 
@@ -18,10 +20,6 @@ function removeActiveClasses(){
         panel.classList.remove('activeinchat');
         panel.classList.remove('inchat');
     })
-}
-function dosomething(){
-    inchatuser=document.getElementsByClassName('activeinchat')[0].id;
-    loadinchat(inchatuser);
 }
 function loadinchat(inchatuser){
       if(inchatuser!==""){

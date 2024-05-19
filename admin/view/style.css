@@ -155,7 +155,6 @@
   display:none;
 }
 .message{
-  min-height: 0;
   width: fit-content;
   padding: 10px;
   border-radius: 50px;
@@ -188,7 +187,7 @@
   background-color: var(--light-mode-neutral-color);
   display:flex;
   flex-direction: column-reverse;
-  overflow-y: scroll;
+  overflow-x: scroll;
   scrollbar-width: none;
 }
 .messagebox{
@@ -230,6 +229,18 @@
   flex-direction: column;
   width: 100%;
 }
+.clickablebox{
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  height: 50px;
+}
+/* .clickablebox img{
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  height: 50px;
+} */
 .profile:hover,.inchat,.activeinchat{
 background:var(--light-mode-neutral-color);
 }
