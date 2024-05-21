@@ -11,8 +11,16 @@ if($result !== ""){
             $fullname=$row['fullname'];
             $usrname=$row['username'];
             $pic=$row['pic']==null ?'person.png':$row['pic'];
-            $message=$row['message'];
-            $readstatus=$row['readstatus'];
+            $messageresult=$friendlist->loadlatestmessage($usrname);
+            $messagedetail=$messageresult->fetch_assoc();
+            if(mysqli_num_rows($messageresult)>0){
+                $message=$messagedetail['message'];
+                $readstatus=$messagedetail['readstatus'];
+            }
+            else{
+                $message="";
+                $readstatus="";
+            }
             $a=[$usrname=>[$fullname,$pic,$message,$readstatus]];
             array_push($arr,$a);
     }

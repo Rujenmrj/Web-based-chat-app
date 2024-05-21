@@ -7,7 +7,6 @@ class Friend{
         @db->Insertqry($sql);
     }
     function loadfriendrequest($user){
-        // $db=new Database();
         $sql="SELECT * FROM `friends` AS F JOIN `profiles` AS P ON username=requestID or username=receiveID JOIN message AS M ON messagefrom=username or messageto=username LIMIT 1" ;
         $arr=[];
         $result=@db->Selectqry($sql);
@@ -21,7 +20,6 @@ class Friend{
         $sql="UPDATE `Friends` SET `Status`=1 WHERE requestID=$befriend AND receiveID=$user";
     }
     function searchfriend($befriend){
-        // $db=new Database();
         $sql="SELECT * FROM users WHERE username=$befriend OR fullname=$befriend";
         $result=@db->Selectqry($sql);
         if($result){
@@ -29,15 +27,22 @@ class Friend{
         }
     }
     function friendslist($user){
-        // $db=new Database();
-        $sql="SELECT receiveID,username,fullname,readstatus,pic,message,acceptstatus,requestID FROM friends JOIN profiles ON requestID=username OR receiveID=username LEFT JOIN message ON requestID=messagefrom OR receiveID=messagefrom GROUP BY username HAVING acceptstatus=1 AND username <>'$user' AND (requestID='$user' OR receiveID='$user')";
+        $sql="SELECT receiveID,username,fullname,pic,acceptstatus,requestID FROM friends JOIN profiles ON requestID=username OR receiveID=username Group BY username HAVING acceptstatus=1 AND username <>'$user' AND (requestID='$user' OR receiveID='$user')";
         $result=@db->Selectqry($sql);
         if($result){
             return $result;
         }
     }
     function friendrequestlist($user){
-        $sql="SELECT receiveID,username,fullname,readstatus,pic,message,acceptstatus,requestID FROM friends JOIN profiles ON requestID=username OR receiveID=username LEFT JOIN message ON requestID=messagefrom OR receiveID=messagefrom GROUP BY username HAVING acceptstatus=0 AND username <>'$user' AND (requestID='$user' OR receiveID='$user')";
+        $sql="SELECT receiveID,username,fullname,pic,acceptstatus,requestID FROM friends JOIN profiles ON requestID=username OR receiveID=username Group BY username HAVING acceptstatus=0 AND username <>'$user' AND (requestID='$user' OR receiveID='$user')";
+        $result=@db->Selectqry($sql);
+        if($result){
+            return $result;
+        }
+    }
+    function loadlatestmessage($befriend){
+        $user=$_SESSION['user'];
+        $sql="SELECT message,readstatus FROM message WHERE (messagefrom='$user' AND messageto='$befriend') OR (messagefrom='$befriend' AND messageto='$user') ORDER BY sentdatetime DESC LIMIT 1";
         $result=@db->Selectqry($sql);
         if($result){
             return $result;

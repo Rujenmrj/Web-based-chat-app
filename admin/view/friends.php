@@ -34,4 +34,4 @@
     </section>
     </div>
 <script src="../controller/backgroundload.js"></script>
-<script src="animation.js"></script>
+<script src="interactive.js"></script>

@@ -11,6 +11,9 @@
   --dark-mode-secondary-color:red;
   --dark-mode-accent-color:red;
 }
+body{
+  background-color: var(--light-mode-neutral-color);
+}
 
 .gridcenter{
   height: 100vh;

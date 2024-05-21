@@ -66,5 +66,54 @@ echo "</section></main>";
 include_once("progress_bars/progressbuttons.html");
 echo "</form>";
 ?>
+<script>
+const username=document.getElementById('Username');
+username.onkeyup= function(){
+    checkusername(username.value);
+}
+function checkusername(username){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const boxes = document.querySelectorAll('.input-with-placeholder');
+            if(this.responseText=='true'){
+                console.log('Username already taken');
+                boxes.forEach(box => {
+                  box.style.backgroundColor = 'red';
+                });
+                document.getElementById('next').disabled=true;
+            }
+            else if(this.responseText=='false'){
+                boxes.forEach(box => {
+                  box.style.backgroundColor = 'transparent';
+                });
+                document.getElementById('next').disabled=false;
+            }
+        }
+    }
+    xmlhttp.open("POST","../controller/usernameavaibility.php");
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("username="+username);
+}
+function replacePicture() {
+    var fileInput = document.getElementById('profilepic');
+    var file = fileInput.files[0];
+    var formData = new FormData();
+    formData.append('profilepic', file);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'replace_picture.php', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Picture replaced successfully
+            console.log('Picture replaced successfully');
+        } else {
+            // Error replacing picture
+            console.error('Error replacing picture');
+        }
+    };
+    xhr.send(formData);
+}
+</script>
 </body>
 </html>

@@ -12,26 +12,37 @@ if($result !== ""){
             $fullname=$row['fullname'];
             $usrname=$row['username'];
             $pic=$row['pic']==null ?'person.png':$row['pic'];
-            $message=$row['message'];
-            $readstatus=$row['readstatus'];
-            $a=[$usrname=>[$fullname,$pic,$message,$readstatus]];
+            $a=[$usrname=>[$fullname,$pic]];
             array_push($arr,$a);
     }
 }
 }
-    $user="Rujen";
-    $ab=['rujen','person.png','abd',123];
-    echo "<div class=\"profile \" id='$user'>
+foreach($arr as $username=>$detail)
+{
+    foreach($detail as $user=>$ab){
+        echo "<div class=\"profile \" id='$user'>
         <div class='profile_img' style=\"background-image:url('../images/$ab[1]'); background-size:48px;\">
                 </div>
                 <div class='box'>
                 <strong>$ab[0]</strong>
-                <div class='latestmessage'>
-                    <span>$ab[1]</span>
-                    <span>$ab[3]</span>
                 </div>
-                </div>
+                <button id='addfriend' class='button'>Add Friend</button>
             </div>";
+    }
+}
+    // $user="Rujen";
+    // $ab=['rujen','person.png','abd',123];
+    // echo "<div class=\"profile \" id='$user'>
+    //     <div class='profile_img' style=\"background-image:url('../images/$ab[1]'); background-size:48px;\">
+    //             </div>
+    //             <div class='box'>
+    //             <strong>$ab[0]</strong>
+    //             <div class='latestmessage'>
+    //                 <span>$ab[1]</span>
+    //                 <span>$ab[3]</span>
+    //             </div>
+    //             </div>
+    //         </div>";
             ?>
 </body>
 </html>
