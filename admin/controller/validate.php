@@ -24,10 +24,10 @@ function validate($user,$password){
                 //redirect to admin/dashboard.php
                 if($status==1){
                     if("admin"=="$role" ){
-                        header("Location:home.php");
+                        header("Location:../model/captcha.php");
                     }
                     else{
-                        header("Location:home.php");
+                        header("Location:../model/captcha.php");
                     }
                 }
             }

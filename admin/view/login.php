@@ -24,9 +24,6 @@ $loginPasswordField=new FieldWithIcon(
 if(isset($_POST['Login'])){
     $usr=new User();
     $usr->login($_POST['Username'],$_POST['Password']);
-    // if(!validate($_POST['Username'],$_POST['Password'])){
-    //     unset($_POST);
-    // }
 }
 ?>
 <html lang="en">
