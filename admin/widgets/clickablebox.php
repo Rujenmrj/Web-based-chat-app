@@ -1,13 +1,25 @@
-<div class="profile" id='request_received'>
-    <div class='profile_img' style="background-image:url('../images/person.png'); background-size:48px;">
-    </div>
-    <div class='box'>
-        <strong>Request Received</strong>
-    </div>
-</div>
-<div class="profile" id='request_sent'>
-    <div class='profile_img' style="background-image:url('../images/person.png'); background-size:48px;"></div>
-    <div class='box'>
-        <strong>Request Sent</strong>
-    </div>
-</div>
+<?php
+    class clickablebox{
+        private $id;
+        private $img;
+        private $text;
+        private $outerclass;
+        private $innerclass;
+        public function __construct($id, $img, $text, $outerclass, $innerclass){
+            $this->id = $id;
+            $this->img = $img;
+            $this->text = $text;
+            $this->outerclass = $outerclass;
+            $this->innerclass = $innerclass;
+            $this->add();
+        }
+        function add(){
+            echo "<div class='$this->outerclass' id='$this->id'>
+                <div class='profile_img' style='background-image:url($this->img); background-size:48px;'></div>
+                <div class='$this->innerclass'>
+                    <strong>$this->text</strong>
+                </div>
+                </div>";
+        }
+    }
+?>
