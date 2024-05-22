@@ -61,3 +61,5 @@ viewSentRequest.onclick=function (){
     loadfriendrequest();
     console.log("loading friend request sent")
 }
+
+

@@ -26,7 +26,7 @@
         <?php
             include_once('../widgets/clickablebox.php');
             $received = new clickablebox('request_received', '../images/person.png', 'Request Received', 'profile', 'box');
-            $received = new clickablebox('request_sent', '../images/person.png', 'Request Sent', 'profile', 'box');
+            $sent = new clickablebox('request_sent', '../images/person.png', 'Request Sent', 'profile', 'box');
         ?>
     </section>
     

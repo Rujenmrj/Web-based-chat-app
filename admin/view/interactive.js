@@ -22,7 +22,11 @@ function removeActiveClasses(){
     })
 }
 function loadinchat(inchatuser){
-      if(inchatuser!==""){
+    if(inchatuser===""){
+    document.getElementById('message').disabled=true;
+    document.getElementById('send').disabled=true;
+    }
+    else if(inchatuser!==""){
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
@@ -33,7 +37,8 @@ function loadinchat(inchatuser){
       xmlhttp.open("POST","../controller/loadintochat.php", true);
       xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xmlhttp.send("usertoload="+inchatuser);
-  }
+    }
+    
 }
 function displayoption(){
     option=document.getElementById('showoptions');

@@ -13,7 +13,6 @@
         <ul class="flexcenter flexcolumn">
             <li><a href="home.php"><img src="../images/home.png" alt="home"></a></li>
             <li><a href="friends.php"><img src="../images/friends.png" alt="add friends"></a></li>
-            <li><a href="setting.php"><img src="../images/settings.png" alt="settings"></a></li>
-            <li><a href="logout.php"><img src="../images/log-out.png" alt="settings"></a></li>
+            <li><a href="settings.php"><img src="../images/settings.png" alt="settings"></a></li>
         </ul>
     </div>
