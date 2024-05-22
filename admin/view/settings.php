@@ -18,6 +18,9 @@
     </section>
     
     <section class="section2" id="friendsection2">
+        <?php 
+        include_once('../view/profile.php');
+        ?>
     </section>
     </div>
     <script>
