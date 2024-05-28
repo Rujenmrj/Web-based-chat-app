@@ -1,6 +1,12 @@
 <!-- <div class="container">
     <div class="profile"><img src="" alt=""></div>
     <span class="username"></span>-->
+    <?php
+    // include_once('../model/session.php');
+    // include_once('../model/database.php');
+    // $sql="SELECT * FROM profile WHERE username='".$_SESSION['username']."'";
+    // $result=@db->Selectqry($sql);
+    ?>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +32,8 @@
         } */
         .imgprofile {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            aspect-ratio: 1/1;
             object-fit: cover;
         }
         .full-name {
@@ -49,8 +55,8 @@
 </head>
 <body>
 
-<div class=" flexcenter"  ></div>
-    <img class="imgprofile" src="profiles-picture.jpg" alt="Profiles Picture">
+<div class="flexcenter"  ></div>
+    <img class="imgprofile" src="../images/profile.png" alt="Profiles Picture">
     <div class="full-name">John Doe</div>
     <div class="username">@johndoe</div>
     <div class="email">johndoe@example.com</div>

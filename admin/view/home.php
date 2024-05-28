@@ -16,7 +16,7 @@
     // }
     include_once('nav.php');
     ?>
-    <section class="section1">
+    <section class="section1" id='section1'>
         <div style="background:white;"><a href="#"><img src="../images/menu.png" alt="" width="30px"></a>Messages </div>
         <!-- <input type="text"> -->
         <?php

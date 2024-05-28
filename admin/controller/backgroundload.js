@@ -37,6 +37,7 @@ function postmessonenter(e){
      setInterval(() => {xmlhttp.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
              if(messages.innerHTML!==this.response){
+                 loadnewmessageinprofile_latestmessage();
                  document.getElementById("messages").innerHTML = this.responseText;
                 }
             }
@@ -44,6 +45,18 @@ function postmessonenter(e){
         xmlhttp.open("POST", "../controller/loadMessage.php", true);
         xmlhttp.send();
     }, 1000);
+}
+function loadnewmessageinprofile_latestmessage(){
+    console.log("executing loadnewmessageinprofile_latestmessage()");
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("section1").innerHTML = this.responseText;
+        }
+    }
+    xmlhttp.open("POST", "../controller/loadlatestMessage.php", true);
+    xmlhttp.send();
+
 }
 
 function loadfriendrequest(){

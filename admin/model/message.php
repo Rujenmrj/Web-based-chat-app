@@ -26,5 +26,15 @@ class Message{
 
         return $arr;
     }
+    function loadlastmessage(){
+        $username=$_SESSION['user'];
+        $inchat=isset($_SESSION['inchat'])?$_SESSION['inchat']:'';
+        // $inchat=$_SESSION['inchat'];
+        $sql="SELECT message FROM message WHERE (messagefrom='$inchat' and messageto='$username') or (messagefrom='$username' and messageto='$inchat') ORDER BY sentdatetime DESC LIMIT 1";
+        $message=new Database();
+        $arr=$message->Selectqry($sql);
+       
+        return $arr;
+    }
 }
 ?>

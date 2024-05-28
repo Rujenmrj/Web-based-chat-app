@@ -1,4 +1,11 @@
 <?php
+// include_once('../model/message.php');
+// $message=new Message();
+// $latest=$message->loadlastmessage();
+// $latest=mysqli_fetch_array($latest);
+// echo $latest['message'];
+?>
+<?php
 include_once("../view/config.php");
 include_once("../model/friends.php");
 include_once("../model/session.php");
@@ -46,7 +53,6 @@ foreach($arr as $username=>$detail)
                 </div>
                 </div>
             </div>";
-            echo time();
     }
 }
 ?>
