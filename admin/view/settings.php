@@ -1,14 +1,13 @@
 <?php
     session_start();
-    $_SESSION['uid']="newid";
     include_once('nav.php');
     ?>
     <section class="section1">
-        <div style="background:white;">
+        <div style="background:white;" class='flexcenter'>
             <a href="#">
                 <img src="../images/menu.png" alt="menu" width="30px">
             </a>
-            <span>Friend Request</span>
+            <span style="padding:10px">Settings</span>
         </div>
         <?php
             include_once('../widgets/clickablebox.php');

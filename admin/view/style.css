@@ -5,7 +5,7 @@
 :root{
   --light-mode-primary-color:#3a7cff;
   --light-mode-secondary-color:rgb(134, 163, 221);
-  --light-mode-accent-color:#2d9e80c6;
+  --light-mode-accent-color:#9abcfe;
   --light-mode-neutral-color:#989898c6;
   --dark-mode-primary-color:red;
   --dark-mode-secondary-color:red;
@@ -24,7 +24,7 @@ body{
 .flexcenter{
   display: flex;
   justify-content: space-around;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 .gridrow{
   grid-auto-flow: row;
@@ -151,7 +151,6 @@ body{
   /* max-height: 100vh; */
   display: flex;
   flex-direction: column;
-  /* background: rgb(126, 29, 245); */
   flex-grow: 10;
 }
 #form2, #form3{
@@ -312,7 +311,7 @@ overflow: hidden;
   }
 }
 .sent{
-  background-color: var(--light-mode-secondary-color);
+  background-color: rgb(194, 196, 198);
   position: relative;
   margin-left: auto;
 }

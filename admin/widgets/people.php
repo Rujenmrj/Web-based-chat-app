@@ -1,7 +1,6 @@
 <?php
 include_once("../view/config.php");
 include_once("../model/friends.php");
-include_once("../model/session.php");
 $friendlist=new Friend();
 $result=$friendlist->friendslist($_SESSION['user']);
 $arr=[];
@@ -46,7 +45,6 @@ foreach($arr as $username=>$detail)
                 </div>
                 </div>
             </div>";
-            echo time();
     }
 }
 ?>

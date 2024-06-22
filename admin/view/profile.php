@@ -54,13 +54,25 @@
     </style>
 </head>
 <body>
+<?php
+include_once("../model/Database.php");
+// include_once("../model/session.php");
+define('db',new Database);
+$sql="SELECT pic,fullname,u.username,email from users as u JOIN profiles as p ON u.username=p.username WHERE u.username='$_SESSION[user]'";
+$result=db->Selectqry($sql);
+$row=$result->fetch_assoc();
+$pic=$row['pic'];
+$fullname=$row['fullname'];
+$username=$row['username'];
+$email=$row['email'];
+echo "
+    <img class='imgprofile' src='../images/$pic' alt='Profiles Picture'>
+    <div class='full-name'>$fullname</div>
+    <div class='username'>@$username</div>
+    <div class='email'>$email</div>
+    </div>"
+?>
 
-<div class="flexcenter"  ></div>
-    <img class="imgprofile" src="../images/profile.png" alt="Profiles Picture">
-    <div class="full-name">John Doe</div>
-    <div class="username">@johndoe</div>
-    <div class="email">johndoe@example.com</div>
-</div>
 
 </body>
 </html>
