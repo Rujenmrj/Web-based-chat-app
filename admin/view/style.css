@@ -3,10 +3,10 @@
   margin: 0;
 }
 :root{
-  --light-mode-primary-color:#3a7cff;
-  --light-mode-secondary-color:rgb(134, 163, 221);
-  --light-mode-accent-color:#9abcfe;
-  --light-mode-neutral-color:#989898c6;
+  --light-mode-primary-color:#4b84f7;
+  --light-mode-secondary-color:rgb(150, 182, 245);
+  --light-mode-accent-color:#b6c1d7;
+  --light-mode-neutral-color:white;
   --dark-mode-primary-color:red;
   --dark-mode-secondary-color:red;
   --dark-mode-accent-color:red;
@@ -188,9 +188,15 @@ body{
   height: inherit;
   background-color: var(--light-mode-neutral-color);
   display:flex;
-  flex-direction: column-reverse;
-  overflow-x: scroll;
+  flex-direction: column;
   scrollbar-width: none;
+  overflow-x: scroll;
+  overflow-x: scroll;
+}
+#messageinchat{
+  margin-top:60px;
+  display:flex;
+  flex-direction: column-reverse !important;
 }
 .messagebox{
   display: flex;

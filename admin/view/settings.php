@@ -11,7 +11,7 @@
         </div>
         <?php
             include_once('../widgets/clickablebox.php');
-            $editprofile = new clickablebox('edit_profile', '../images/person.png', 'edit profile', 'profile', 'box');
+            $editprofile = new clickablebox('edit_profile', '../images/person.png', 'View profile', 'profile', 'box');
             $logout = new clickablebox('logout', '../images/log-out.png', 'Logout', 'profile', 'box');
         ?>
     </section>

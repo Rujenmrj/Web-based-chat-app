@@ -46,7 +46,7 @@ $otpField=new FieldWithIcon(
     $label="OTP",
     $icon=@images."/key.png"
 );
-    echo "<form action='verifyuser.php' method='post' id='validatewithotp'>
+    echo "<form action='verifyuser.php' method='post' id='validatewithotp' enctype='multipart/form-data'>
             <main class='flexcenter'>
             <section class='form' id='form1'>";
     $FirstNameField->add();
@@ -94,25 +94,6 @@ function checkusername(username){
     xmlhttp.open("POST","../controller/usernameavaibility.php");
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("username="+username);
-}
-function replacePicture() {
-    var fileInput = document.getElementById('profilepic');
-    var file = fileInput.files[0];
-    var formData = new FormData();
-    formData.append('profilepic', file);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'replace_picture.php', true);
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            // Picture replaced successfully
-            console.log('Picture replaced successfully');
-        } else {
-            // Error replacing picture
-            console.error('Error replacing picture');
-        }
-    };
-    xhr.send(formData);
 }
 </script>
 </body>

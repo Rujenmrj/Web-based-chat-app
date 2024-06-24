@@ -8,7 +8,18 @@ if(isset($_POST['OTP'])){
         if($_POST['OTP']===$otp->verifyotp()){
             $username=$_POST['Username'];
             $fullname=$_POST['FirstName']." ".$_POST['LastName'];
-            $pic=$_POST['profilepic'];
+            $filetype=ltrim($_FILES['profilepic']['type'],"image/");
+            if(($_FILES["profilepic"]["type"])=="image/jpeg" || ($_FILES["profilepic"]["type"])=="image/jpg" || ($_FILES["profilepic"]["type"])=="image/png")
+            {
+                $_FILES['profilepic']['name']=$username."profilepic.".$filetype;
+                if(move_uploaded_file($_FILES['profilepic']['tmp_name'],"../images/".$_FILES['profilepic']['name'])){
+                    header("location:nowhere.php");
+                }
+                $pic=$username.'profilepic.'.$filetype;
+            }
+            else{
+                $pic='person.png';
+            }
             $email=$_SESSION['email'];
             $_SESSION['user']=$username;
             $_SESSION['fullname']=$fullname;

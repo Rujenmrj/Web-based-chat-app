@@ -29,14 +29,6 @@ if(isset($_POST['Register'])){
     $usr=new User();
     $usr->register();
 }
-// if(isset($_POST['register'])){
-//     $user=$_POST['Email'];
-//     $password=$_POST['Password'];
-//     $confirmpassword=$_POST['Confirm-Password'];
-//     registervalidation($user,$password,$confirmpassword);
-//         $user=new User();
-//         $user->register();
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +37,7 @@ if(isset($_POST['Register'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../images/person.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/logov3.png" type="image/x-icon">
 </head>
 <body>
 <div class="gridcenter">

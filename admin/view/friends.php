@@ -29,8 +29,11 @@
             $sent = new clickablebox('request_sent', '../images/person.png', 'Request Sent', 'profile', 'box');
         ?>
     </section>
-    
     <section class="section2" id="friendsection2">
+        <div style="width:100%; height:10%;background-color:var(--light-mode-secondary-color);display:flex;" >
+            <input type="search" onkeyup="searchuser()" name="searchprofile" id="searchingprofile" style="height:30%;margin:4% 0 0 10%;" placeHolder="Search">
+        </div>
+        <div id="requestsection"></div>
     </section>
     </div>
 <script src="../controller/backgroundload.js"></script>

@@ -21,7 +21,7 @@ foreach($arr as $username=>$detail)
 {
     foreach($detail as $user=>$ab){
         echo "<div class=\"profile \" id='$user'>
-        <div class='profile_img' style=\"background-image:url('../images/$ab[1]'); background-size:48px;\">
+        <div class='profile_img' style=\"background-image:url('$ab[1]');background-size:48px;margin-right:5%;\">
                 </div>
                 <div class='box'>
                 <strong>$ab[0]</strong>
@@ -30,6 +30,18 @@ foreach($arr as $username=>$detail)
             </div>";
     }
 }
+//             $sql="SELECT pic,fullname,u.username,email from users as u JOIN profiles as p ON u.username=p.username WHERE u.username='$_SESSION[inchat]'";
+//             $result=db->Selectqry($sql);
+//             $row=$result->fetch_assoc();
+//             $pic="../images/".$row['pic'];
+//             $fullname=$row['fullname'];
+//             $username=$row['username'];
+//             $email=$row['email'];
+//             echo "
+//             <div class='profile_img' style=\"background-image:url('$pic');background-size:48px;margin-right:5%;\">
+//                 </div>
+//                 <div style='font-size:2em;'>$fullname</div>
+//                 "
     // $user="Rujen";
     // $ab=['rujen','person.png','abd',123];
     // echo "<div class=\"profile \" id='$user'>

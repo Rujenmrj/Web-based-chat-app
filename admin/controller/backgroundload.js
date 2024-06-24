@@ -50,11 +50,33 @@ function loadfriendrequest(){
      xmlhttp.onreadystatechange = function() {
      if (this.readyState == 4 && this.status == 200) {
             console.log("text ready");
-             document.getElementById("friendsection2").innerHTML = this.responseText;
+             document.getElementById("requestsection").innerHTML = this.responseText;
         }
     }
     xmlhttp.open("GET", "../widgets/requestbox.php", true);
     xmlhttp.send();
+}
+
+function searchuser(){
+    var search=document.getElementById("searchingprofile").value.trim();
+    if(search!==""){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if(this.responseText==""){
+                    document.getElementById("requestsection").innerHTML = 'no result found......';
+                }
+                document.getElementById("requestsection").innerHTML = this.responseText;
+            }
+        }
+        xmlhttp.open("POST", "../controller/searchingprofile.php", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("search="+search);
+    }
+    else{
+        document.getElementById("requestsection").innerHTML = 'no result found......';
+    }
+
 }
 viewSentRequest.onclick=function (){
     loadfriendrequest();

@@ -24,7 +24,7 @@ class Gmail{
     else{
         echo "Unable to send email";
     }
-
+    
     }
 }
 ?>
